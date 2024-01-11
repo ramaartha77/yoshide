@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,500;0,600;0,700;0,800;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header Start -->
+    <header class="font-poppins">
+      <section
+        class="shadow-lg bg-gradient-to-r from-amber-200 to-yellow-400 font-Poppins font-semibold"
+      >
+        <div class="max-w-6xl px-4 mx-auto" x-data="{open:false}">
+          <nav class="flex items-center justify-between py-4">
+            <img src="dist/img/logo.png" class="h-10 w-10" />
+            <h1 class="text-3xl leading-none text-black"></h1>
+            <div class="flex justify-between lg:space-x-9">
+              <div class="lg:hidden">
+                <button
+                  class="flex items-center px-3 py-2 text-blue-600 border border-blue-200 rounded navbar-burger hover:text-blue-800 hover:border-blue-300 lg:hidden"
+                  @click="open =true"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    fill="currentColor"
+                    class="bi bi-list"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <ul
+                class="hidden lg:w-auto lg:space-x-9 lg:items-center lg:flex font-medium"
+              >
+                <li>
+                  <a
+                    href="#order"
+                    class="text-sm text-gray-700 hover:text-blue-700"
+                    >Order</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#about"
+                    class="text-sm text-gray-700 hover:text-blue-700"
+                    >Tentang Kami</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#menu"
+                    class="text-sm text-gray-700 hover:text-blue-700"
+                    >Menu</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#testimoni"
+                    class="text-sm text-gray-700 hover:text-blue-700"
+                    >Testimoni
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#alamat"
+                    class="text-sm text-gray-700 hover:text-blue-700"
+                    >Alamat
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <!-- Mobile Sidebar -->
+          <div
+            class="fixed inset-0 w-full bg-gray-900 opacity-25 lg:hidden"
+            :class="{'translate-x-0 ease-in-opacity-100' :open===true, '-translate-x-full ease-out opacity-0' : open===false}"
+          ></div>
+          <div
+            class="absolute inset-0 z-10 h-screen p-3 text-white duration-500 transform bg-gradient-to-r from-rose-400 to-red-500 w-80 lg:hidden lg:transform-none lg:relative"
+            :class="{'translate-x-0 ease-in-opacity-100' :open===true, '-translate-x-full ease-out opacity-0' : open===false}"
+          >
+            <div class="flex justify-between lg:">
+              <img src="dist/img/logo.png" class="h-20 w-20" />
+              <a class="p-2 text-2xl font-bold text-white" href="#"></a>
+              <button
+                class="p-2 text-gray-700 rounded-md hover:text-blue-300 lg:hidden"
+                @click="open=false"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  class="bi bi-x-circle"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                  />
+                  <path
+                    d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <ul class="px-4 text-left text-white mt-7">
+              <li class="pb-3">
+                <a href="#order" class="text-sm hover:text-blue-400">Order</a>
+              </li>
+              <li class="pb-3">
+                <a href="#about" class="text-sm hover:text-blue-400"
+                  >Tentang Kami</a
+                >
+              </li>
+              <li class="pb-3">
+                <a href="#menu" class="text-sm hover:text-blue-400">Menu</a>
+              </li>
+              <li class="pb-3">
+                <a href="#testimoni" class="text-sm hover:text-blue-400"
+                  >Testimoni
+                </a>
+              </li>
+              <li class="pb-3">
+                <a href="#alamat" class="text-sm hover:text-blue-400"
+                  >Alamat
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <script
+        defer
+        src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+      ></script>
+    </header>
+    <!-- Header End -->
+
+    <!-- hero section Start -->
+    <section
+      id="order"
+      class="relative pb-8 text-center items-center"
+      style="height: 750px"
+    >
+      <div>
+        <img
+          src="dist/img/IMG_2564.JPG"
+          class="absolute top-0 bottom-0 left-0 right-0 object-cover w-full h-full"
+          alt=""
+        />
+        <div
+          class="absolute top-0 bottom-0 left-0 right-0 flex items-center bg-slate-900/75"
+        >
+          <div class="z-10 max-w-6xl px-4 mx-auto animate-fade-up">
+            <h2
+              class="mt-2 mb-4 text-3xl font-bold leading-tight text-white md:text-4xl md:leading-tight lg:text-7xl lg:leading-tight g"
+            >
+              Yoshide
+            </h2>
+            <p class="mb-8 text-base leading-8 text-gray-400 lg:text-xl">
+              Fast Service, Homemade Taste
+            </p>
+            <div class="font-semibold">
+              <div class="mb-10">
+                <a
+                  href="https://gofood.co.id/bali/restaurant/yoshide-bali-pendidikan-48-44-c8eeab66-aa7c-4ebb-8bde-4c3caba41069"
+                  class="px-10 py-3 text-white transition-all transform border border-red-500 hover:bg-red-600 hover:text-gray-100 rounded-xl"
+                >
+                  GoFood
+                </a>
+              </div>
+              <div>
+                <a
+                  href="https://wa.me/6285156112465"
+                  class="px-7 py-3 text-white transition-all transform border border-green-500 hover:bg-green-600 hover:text-gray-100 rounded-xl"
+                >
+                  WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- hero section End -->
+
+    <!-- About start -->
+    <section id="about" class="bg-gray-100">
+      <div
+        class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6"
+      >
+        <div class="font-light text-black-500 sm:text-lg">
+          <div class="mb-10 text-center"></div>
+          <h2
+            class="mb-4 text-4xl tracking-tight font-extrabold text-green-800"
+          >
+            Kelezatan Tanpa Batasan: Bahan-Bahan Pilihan
+          </h2>
+          <p class="mb-4">
+            Cita rasa tiada tanding, Kami di Yoshide hanya menggunakan ayam
+            pilihan terbaik tanpa tambahan pengawer. Setiap gigitan adalah
+            pengalaman lezat yang murni, dihasilkan dari dedikasi pada kualitas
+            bahan.
+          </p>
+          <p>
+            Hanya bahan-bahan berkualitas tinggi yang menjadi bintang di dapur
+            kami, tanpa kompromi. Ayam kami disiapkan dengan cinta, karena
+            kelezatan sejati berasal dari bahan terbaik. Bergabunglah dengan
+            kami untuk menyelami kelezatan yang tak terlupakan, di mana setiap
+            hidangan menggambarkan kisah keaslian dan kualitas.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-4 mt-8">
+          <img
+            class="w-full rounded-lg"
+            src="dist/img/b.JPG"
+            alt="office content 1"
+          />
+          <img
+            class="mt-4 w-full lg:mt-10 rounded-lg"
+            src="dist/img/IMG_2884.JPG"
+            alt="office content 2"
+          />
+        </div>
+      </div>
+    </section>
+    <!-- About end -->
+
+    <!-- Menu start -->
+    <section id="menu">
+      <div class="my-10 text-center">
+        <span class="block mb-4 text-xs tracking-widest text-red-500 uppercase">
+          Menu
+        </span>
+        <h1 class="text-3xl font-bold"><i>Main Menu</i></h1>
+      </div>
+      <div class="flex justify-center items-center flex-wrap mx-4">
+        <!-- Menu 1 -->
+        <div class="w-full mb-4 p-5 md:w-1/2 lg:w-1/4">
+          <div
+            class="menu w-full overflow-hidden bg-white rounded-lg shadow-lg transition-transform transform hover:scale-105"
+          >
+            <img
+              class="object-cover w-full h-56"
+              src="dist/img/IMG_2884.JPG"
+              alt="avatar"
+            />
+            <div class="py-5 mx-4">
+              <h3 class="block text-xl font-bold">
+                Yoshide Curry Dada/ Paha Atas
+              </h3>
+              <p>1Pcs Crispy Chicken Curry</p>
+              <span class="text-sm text-gray-700 font-semibold">Rp 18.000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Menu 2 -->
+        <div class="w-full mb-4 p-5 md:w-1/2 lg:w-1/4">
+          <div
+            class="menu w-full overflow-hidden bg-white rounded-lg shadow-lg transition-transform transform hover:scale-105"
+          >
+            <img
+              class="object-cover w-full h-56"
+              src="dist/img/chickenCurry.jpg"
+              alt="avatar"
+            />
+            <div class="py-5 mx-4">
+              <h3 class="block text-xl font-bold">Yoshide Curry Sayap</h3>
+              <p>Crispy Curry Chicken (Bisa Req Level)</p>
+              <span class="text-sm text-gray-700 font-semibold">Rp 15.000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Menu 3 -->
+        <div class="w-full mb-4 p-5 md:w-1/2 lg:w-1/4">
+          <div
+            class="menu w-full overflow-hidden bg-white rounded-lg shadow-lg transition-transform transform hover:scale-105"
+          >
+            <img
+              class="object-cover w-full h-56"
+              src="dist/img/blackpapper.jpg"
+              alt="avatar"
+            />
+            <div class="py-5 mx-4">
+              <h3 class="block text-xl font-bold">
+                Yoshide Black pepper Dada/ Paha Atas
+              </h3>
+              <p>Crispy Chicken Black pepper</p>
+              <span class="text-sm text-gray-700 font-semibold">Rp 18.000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Menu 4 -->
+        <div class="w-full mb-4 p-5 md:w-1/2 lg:w-1/4">
+          <div
+            class="menu w-full overflow-hidden bg-white rounded-lg shadow-lg transition-transform transform hover:scale-105"
+          >
+            <img
+              class="object-cover w-full h-56"
+              src="dist/img/blackpapper.jpg"
+              alt="avatar"
+            />
+            <div class="py-5 mx-4">
+              <h3 class="block text-xl font-bold">
+                Yoshide Black pepper(Sayap/Paha Bawah)
+              </h3>
+              <p>Chicken Crispy Black pepper Sauce</p>
+              <span class="text-sm text-gray-700 font-semibold">Rp 15.000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Menu 5 -->
+        <div class="w-full mb-4 p-5 md:w-1/2 lg:w-1/4">
+          <div
+            class="menu w-full overflow-hidden bg-white rounded-lg shadow-lg transition-transform transform hover:scale-105"
+          >
+            <img
+              class="object-cover w-full h-56"
+              src="dist/img/IMG_2564.JPG"
+              alt="avatar"
+            />
+            <div class="py-5 mx-4">
+              <h3 class="block text-xl font-bold">
+                Yoshide Original (Dada / Paha Atas)
+              </h3>
+              <p>Crispy Original Chicken</p>
+              <span class="text-sm text-gray-700 font-semibold">Rp 13.000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Menu 6 -->
+        <div class="w-full mb-4 p-5 md:w-1/2 lg:w-1/4">
+          <div
+            class="menu w-full overflow-hidden bg-white rounded-lg shadow-lg transition-transform transform hover:scale-105"
+          >
+            <img
+              class="object-cover w-full h-56"
+              src="dist/img/IMG_2562.JPG"
+              alt="avatar"
+            />
+            <div class="py-5 mx-4">
+              <h3 class="block text-xl font-bold">Yoshide Original (Sayap)</h3>
+              <p>Crispy Original Chicken</p>
+              <span class="text-sm text-gray-700 font-semibold">Rp 10.000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Menu 7 -->
+        <div class="w-full mb-4 p-5 md:w-1/2 lg:w-1/4">
+          <div
+            class="menu w-full overflow-hidden bg-white rounded-lg shadow-lg transition-transform transform hover:scale-105"
+          >
+            <img
+              class="object-cover w-full h-56"
+              src="dist/img/IMG_2562.JPG"
+              alt="avatar"
+            />
+            <div class="py-5 mx-4">
+              <h3 class="block text-xl font-bold">
+                Spicy Crispy Chicken (Sayap)
+              </h3>
+              <p>1 Pcs Spicy Crispy Chicken (Sayap)</p>
+              <span class="text-sm text-gray-700 font-semibold">Rp 15.000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Menu 8 -->
+        <div class="w-full mb-4 p-5 md:w-1/2 lg:w-1/4">
+          <div
+            class="menu w-full overflow-hidden bg-white rounded-lg shadow-lg transition-transform transform hover:scale-105"
+          >
+            <img
+              class="object-cover w-full h-56"
+              src="dist/img/kentank.jpg"
+              alt="avatar"
+            />
+            <div class="py-5 mx-4">
+              <h3 class="block text-xl font-bold">French Fries</h3>
+              <p>French Fries (Spicy/Blackpepper/Curry) Lv 0-3</p>
+              <span class="text-sm text-gray-700 font-semibold">Rp 15.000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu end -->
+
+    <!-- Testimonial Start-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.css"
+      rel="stylesheet"
+    />
+
+    <script type="module">
+      import KeenSlider from 'https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm';
+
+      const keenSlider = new KeenSlider(
+        '#keen-slider',
+        {
+          loop: true,
+          slides: {
+            origin: 'center',
+            perView: 1.25,
+            spacing: 16,
+          },
+          breakpoints: {
+            '(min-width: 1024px)': {
+              slides: {
+                origin: 'auto',
+                perView: 2.5,
+                spacing: 32,
+              },
+            },
+          },
+        },
+        []
+      );
+
+      const keenSliderPrevious = document.getElementById(
+        'keen-slider-previous'
+      );
+      const keenSliderNext = document.getElementById('keen-slider-next');
+
+      keenSliderPrevious.addEventListener('click', () => keenSlider.prev());
+      keenSliderNext.addEventListener('click', () => keenSlider.next());
+    </script>
+
+    <section id="testimoni" class="bg-gray-50">
+      <div
+        class="mx-auto px-4 py-12 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24"
+      >
+        <div
+          class="max-w-7xl items-end justify-between sm:flex sm:pe-6 lg:pe-8"
+        >
+          <h2
+            class="max-w-xl text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
+          >
+            Review dari Pelanggan kami 🍗👌❤
+          </h2>
+
+          <div class="mt-8 flex gap-4 lg:mt-0">
+            <button
+              aria-label="Previous slide"
+              id="keen-slider-previous"
+              class="rounded-full border border-rose-600 p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-5 w-5 rtl:rotate-180"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 19.5L8.25 12l7.5-7.5"
+                />
+              </svg>
+            </button>
+
+            <button
+              aria-label="Next slide"
+              id="keen-slider-next"
+              class="rounded-full border border-rose-600 p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+            >
+              <svg
+                class="h-5 w-5 rtl:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 5l7 7-7 7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="-mx-6 mt-8 lg:col-span-2 lg:mx-0">
+          <div id="keen-slider" class="keen-slider">
+            <div class="keen-slider__slide">
+              <blockquote
+                class="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12"
+              >
+                <div>
+                  <div class="flex gap-0.5 text-yellow-500">
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                  </div>
+
+                  <div class="mt-4">
+                    <p class="text-2xl font-bold text-rose-600 sm:text-3xl">
+                      Jo Simba
+                    </p>
+
+                    <p class="mt-4 leading-relaxed text-gray-700">
+                      Fried chicken dengan sauce balurnya mantap, saucenya gak
+                      pelit, sampe tumpeh - tumpeh Recommended buat yang suka
+                      hidangan ayam goreng dengan style yang berbeda
+                    </p>
+                  </div>
+                </div>
+                <footer class="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
+                  &mdash; Via Google Maps
+                </footer>
+              </blockquote>
+            </div>
+
+            <div class="keen-slider__slide">
+              <blockquote
+                class="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12"
+              >
+                <div>
+                  <div class="flex gap-0.5 text-yellow-500">
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                  </div>
+
+                  <div class="mt-4">
+                    <p class="text-2xl font-bold text-rose-600 sm:text-3xl">
+                      A** P****
+                    </p>
+
+                    <p class="mt-4 leading-relaxed text-gray-700">
+                      enakk. tumben nyobain . dan murahh bngtt💙💙
+                    </p>
+                  </div>
+                </div>
+
+                <footer class="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
+                  &mdash; Via GoFood
+                </footer>
+              </blockquote>
+            </div>
+
+            <div class="keen-slider__slide">
+              <blockquote
+                class="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12"
+              >
+                <div>
+                  <div class="flex gap-0.5 text-yellow-500">
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                  </div>
+
+                  <div class="mt-4">
+                    <p class="text-2xl font-bold text-rose-600 sm:text-3xl">
+                      Hana Pradameswari
+                    </p>
+
+                    <p class="mt-4 leading-relaxed text-gray-700">
+                      Rasa enak, bersih, harga bersahabat, jadi kangen makan
+                      yoshide lagi🤗
+                    </p>
+                  </div>
+                </div>
+
+                <footer class="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
+                  &mdash; Via Google Maps
+                </footer>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial End-->
+
+    <!-- contact start -->
+    <section id="alamat" class="bg-white animate-fade-up">
+      <div class="container px-6 py-12 mx-auto">
+        <div class="text-center">
+          <p class="font-medium text-red-500">Alamat Kami</p>
+
+          <h1 class="mt-2 text-2xl font-semibold text-gray-800 md:text-3xl">
+            Bisa Kunjungi Kami di sini!
+          </h1>
+        </div>
+
+        <iframe
+          class="object-cover w-full h-64 mt-10 rounded-lg lg:h-96"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4653.267190812613!2d115.2155424757212!3d-8.644725791402095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23f66acb0cdd9%3A0xfdd4e048e49e9ccf!2sGg.%20XI%20No.12%2C%20Dangin%20Puri%20Kaja%2C%20Kec.%20Denpasar%20Utara%2C%20Kota%20Denpasar%2C%20Bali%2080233!5e1!3m2!1sid!2sid!4v1702883176663!5m2!1sid!2sid"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </section>
+    <!-- contact end -->
+
+    <!-- Footer Start -->
+    <footer class="bg-gradient-to-r from-amber-200 to-yellow-400 flex">
+      <div class="ml-10 lg:container">
+        <img src="dist/img/logo.png" class="h-20 w-20 mt-10" />
+        <p class="mt-4 text-6xl font-bold text-red-600 mb-6 font-OpenSans">
+          Fast Service <br />
+          Homemade Taste
+        </p>
+        <p class="font-bold mb-4 text-red-900">Opening Hours : 11 AM - 10 PM</p>
+        <p class="text-red-600 text-2xl font-bold mb-5 sm:text-xl">
+          Social Media :
+        </p>
+        <a href="https://www.instagram.com/yoshidebali/">
+          <button
+            type="button"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            class="mb-8 inline-block rounded-full p-3 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg"
+            style="background-color: #eb2a2a"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+              />
+            </svg>
+          </button>
+        </a>
+      </div>
+    </footer>
+
+    <!-- Footer End -->
+  </body>
+</html>
